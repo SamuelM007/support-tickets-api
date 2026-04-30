@@ -1,4 +1,5 @@
 import { Router } from "express";
+import {status} from "../controllers/default.controller.js"
 
 const router = Router();
 
@@ -8,5 +9,7 @@ router.get("/", (req, res) => {
         subtitle: "Express + EJS + Static Assets"
     });
 });
+
+router.get("/status", status);
 
 export default router;
