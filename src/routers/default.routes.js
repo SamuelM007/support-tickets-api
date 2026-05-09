@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {status, getAllTickets, getTicket} from "../controllers/default.controller.js"
+import {status, getAllTickets, getTicket,getTicketTag} from "../controllers/default.controller.js"
 
 export const router = Router();
 
@@ -13,6 +13,8 @@ router.get("/", (req, res) => {
 router.get("/tickets",getAllTickets);
 
 router.get("/ticket/:id",getTicket);
+
+router.get("/ticket/:id/tags",getTicketTag);
 
 router.get("/status", status);
 

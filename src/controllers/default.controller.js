@@ -30,3 +30,15 @@ export const getTicket = (req,res) => {
 
 }
 
+export const getTicketTag = (req,res) => {
+    const id = req.params.id;
+    if(id){
+        res.status(200).json(getTicketById(id).tags);
+    } else {
+        res.status(404).json({
+            message : "Ticket not found",
+            id : id
+        });
+    }
+}
+
