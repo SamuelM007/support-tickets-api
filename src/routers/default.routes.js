@@ -1,7 +1,7 @@
 import { Router } from "express";
-import {status} from "../controllers/default.controller.js"
+import {status, getAllTickets} from "../controllers/default.controller.js"
 
-const router = Router();
+export const router = Router();
 
 router.get("/", (req, res) => {
     res.render("default", {
@@ -9,6 +9,8 @@ router.get("/", (req, res) => {
         subtitle: "Express + EJS + Static Assets"
     });
 });
+
+router.get("/tickets",getAllTickets);
 
 router.get("/status", status);
 

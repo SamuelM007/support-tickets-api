@@ -1,3 +1,5 @@
+import { data } from "../data/tickets.js";
+
 export const status = async(req,res) => {
     res.status(200).json({
         "ok" : true,
@@ -5,3 +7,8 @@ export const status = async(req,res) => {
         "time" : new Date()
     });
 };
+
+export const getAllTickets = (req,res) => {
+    res.status(200).json(data);
+}
+
