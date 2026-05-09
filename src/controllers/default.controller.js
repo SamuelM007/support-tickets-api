@@ -1,5 +1,5 @@
 import { data } from "../data/tickets.js";
-import { getTicketById } from "../services/default.service.js";
+import { getTicketById,filterTicket } from "../services/default.service.js";
 
 export const status = async(req,res) => {
     res.status(200).json({
@@ -10,13 +10,16 @@ export const status = async(req,res) => {
 };
 
 export const getAllTickets = (req,res) => {
-    res.status(200).json(data);
+    const filtered = filterTicket(req.query);
+    res.status(200).json({
+        count : filtered.length,
+        data : filtered
+    });
 }
 
 export const getTicket = (req,res) => {
     const id = req.params.id;
     if(id){
-        console.log(getTicketById(id));
         res.status(200).json(getTicketById(id));
     } else {
         res.status(404).json({
@@ -26,3 +29,4 @@ export const getTicket = (req,res) => {
     }
 
 }
+
