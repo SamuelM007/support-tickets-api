@@ -16,13 +16,15 @@ I'm a student developer learning to build and document REST APIs using Node.js a
 
 The goal of this project is to simulate a real-world internal support tickets API. It demonstrates how a backend service is structured, configured, and extended across multiple development phases.
 
-At this stage (**Assignment #1**), the project establishes:
+At this stage (**Assignment #2**), the
+project extends routes and controllers.
 
 - A clean MVC project structure
 - A running Express server
 - Environment-based configuration (via `.env`)
 - A `/status` health-check endpoint
-- A realistic support tickets dataset prepared for future API work
+- Full ticket CRUD endpoints
+- Query filtering, sorting, projection
 
 ---
 
@@ -49,6 +51,16 @@ Returns a JSON response confirming the service is online.
   "timestamp": "2025-04-30T12:00:00.000Z"
 }
 ```
+  
+### `GET /tickets`
+Returns all tickets. Supports ?status=,
+?priority=, ?assignee=, ?sort=, ?fields=
+  
+### `GET /tickets/:id`
+Returns one ticket. 404 if not found.
+  
+### `GET /tickets/:id/tags`
+Returns tag array. 404 if not found.
 
 ---
 
